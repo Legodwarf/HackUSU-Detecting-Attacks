@@ -7,11 +7,9 @@ We will first see if the user trusts the original site being accessed. If they d
 
 2. Using Unicode Homoglyphs
 
-We first will detect a hyperlink within a webpage's comments.
-We will then check Google's Custom Search JSON API to check the amount of traffic related to that domain.
-If the domain's Google search-related traffic falls below a threshold, it will flag the hyperlink. 
-E.G. If a link points to a cyrillic version of "Disney.com," that will fall below the threshold compared to the Latin search.
-If the site is in cyrillic, then, it follows that it will likely fall below the threshold and flag the hyperlink.
+Once we have ascertained that a link re-directs to another website, we will investigate how popular that website's search term is compared with the Latin version of that site.
+This will help us flag a site that replaces, for example, a cryllic character in an otherwise Latin name and redirects traffic to a malicious version of a website.
+Take, for example, apple vs. аррlе. Do they look the same? They do to a casual user, but they are not. The "a" in one is in Latin, the other in cryllic.
 
 Usage:
 Go into the directory where the code is and then run the command: python -m http.server 8000.
@@ -25,5 +23,3 @@ There are several ways to detect base 64 encoding,
    Encoding data in base64 increases the size of the data by about 33% each time it is encoded, so you can also check for file size/text length above an expected threshold.
 The file base64check.py contains a python function definition that reads a url
 The function then checks the length of the input to see if the url is arbitrarily large and therefore was possibly masked with base64 encoding.
-
-CHECK IF SITE TO SITE OR SITE-> OUT OF SITE
