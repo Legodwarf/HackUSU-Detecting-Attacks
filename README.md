@@ -23,3 +23,8 @@ There are several ways to detect base 64 encoding,
    Encoding data in base64 increases the size of the data by about 33% each time it is encoded, so you can also check for file size/text length above an expected threshold.
 The file base64check.py contains a python function definition that reads a url
 The function then checks the length of the input to see if the url is arbitrarily large and therefore was possibly masked with base64 encoding.
+
+
+
+5. Check for hidden URLs
+We will then check if the URL's link opacity has been turned to 0 or is otherwise hidden. This is highly suspicious and should flag an alert.
