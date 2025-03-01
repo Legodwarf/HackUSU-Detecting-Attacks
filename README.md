@@ -25,3 +25,7 @@ The function then checks the length of the input to see if the url is arbitraril
 4. Check for hidden URLs
 
 We will then check if the URL's link opacity has been turned to 0, the style has been turned to display "none", or visibility is "hidden". This is highly suspicious and should flag an alert.
+
+Project by: Chhimi Sherpa, Sean McKnelly, & Stephen Parker
+
+Critiqued by: Prof. Gregory Mortensen
