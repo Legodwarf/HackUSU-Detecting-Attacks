@@ -1,7 +1,11 @@
 There have been recent attacks by Russian cybercriminals that alter plaintext on sites such as Instagram to redirect the client to malicious websites which include malware.
 In the following program we will attempt to detect the following attacks with the following techniques:
 
-1. Using Unicode Homoglyphs
+1. Verifying the site re-directs to another website
+
+We will first see if the user trusts the original site being accessed. If they do, we will check if the web link re-directs to another page on that website. If it does redirect from the trusted website to another subdomain of that trusted website, we will not perform the other checks. Although malicious actors can alter DNS records to corrupt a subdomain but not the primary domain, accounting for this will not be part of the scope of our program at this point in time.
+
+2. Using Unicode Homoglyphs
 
 We first will detect a hyperlink within a webpage's comments.
 We will then check Google's Custom Search JSON API to check the amount of traffic related to that domain.
@@ -13,7 +17,7 @@ Usage:
 Go into the directory where the code is and then run the command: python -m http.server 8000.
 This will make it so that all the files in the directory will be hosted here, so you can access it like this: http://localhost:8000/homoglyph.html
 
-2. Base64 Encoding
+3. Base64 Encoding
 Base64 Encoding is a form of attack masking otherwise concerning data or code as nonsense text making direct detection of the malware more difficult and in HTML smuggling.
 There are several ways to detect base 64 encoding,
    You can look for decoding prompts within text (EX:javascript (btoa, atob), python (base.b64encode or decode)) * Not currently addressed by code in this repository
