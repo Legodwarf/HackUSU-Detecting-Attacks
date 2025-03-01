@@ -11,10 +11,6 @@ Once we have ascertained that a link re-directs to another website, we will inve
 This will help us flag a site that replaces, for example, a cryllic character in an otherwise Latin name and redirects traffic to a malicious version of a website.
 Take, for example, apple vs. аррlе. Do they look the same? They do to a casual user, but they are not. The "a" in one is in Latin, the other in cryllic.
 
-Usage:
-Go into the directory where the code is and then run the command: python -m http.server 8000.
-This will make it so that all the files in the directory will be hosted here, so you can access it like this: http://localhost:8000/homoglyph.html
-
 3. Base64 Encoding
 Base64 Encoding is a form of attack masking otherwise concerning data or code as nonsense text making direct detection of the malware more difficult and in HTML smuggling.
 There are several ways to detect base 64 encoding,
