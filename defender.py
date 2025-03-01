@@ -18,14 +18,11 @@ def normalize_domain(domain):
     return rv
 
 def get_base_domain(url):
-    # Remove the protocol (http, https, etc.) if present
     if "://" in url:
-        url = url.split("://")[1]
-        
+        url = url.split("://")[1]        
 
     if "/" in url:
         url = url.split("/")[0]
-
     return url    
 
 PORT = 8000
@@ -34,7 +31,6 @@ Handler = http.server.SimpleHTTPRequestHandler
 httpd = socketserver.TCPServer(("", PORT), Handler)
 print(f"Serving at http://localhost:{PORT}")
 
-             
 server_thread = threading.Thread(target=httpd.serve_forever, daemon=True)
 server_thread.start()
 
@@ -48,8 +44,10 @@ try:
     fake_url = fake_url_element.text.strip()
     
     normalized_site_name = normalize_domain(fake_url)
-    # for_query_normalized = get_base_domain(normalized_site_name)
-    # for_query_original = get_base_domain(fake_url)
+    print(normalized_site_name)
+    for_query_normalized = get_base_domain(normalized_site_name)
+    for_query_original = get_base_domain(fake_url)
+
     # print((for_query_normalized),(for_query_original))
 
     # correct upto here 
@@ -58,8 +56,9 @@ try:
     
     from pytrends.request import TrendReq
     pytrends = TrendReq(hl='en-US', tz=360)
-    #  keywords = [for_query_normalized,for_query_original]
-    keywords = [normalized_site_name,fake_url]
+    keywords = [for_query_normalized, for_query_original]
+    print(keywords)
+    # keywords = [normalized_site_name]
     # keywords = ['google.com','gооgle.com']
     pytrends.build_payload(keywords, cat=0, timeframe='today 12-m', geo='', gprop='')
     data = pytrends.interest_over_time()
@@ -74,8 +73,6 @@ try:
 
 
 finally:
-    # Close the browser
     driver.quit()
-    # Stop the server
     httpd.shutdown()
     print("Server shut down.")
