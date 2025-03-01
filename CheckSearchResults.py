@@ -1,13 +1,13 @@
 from pytrends.request import TrendReq
 import unicodedata
 def normalize_domain(domain):
-    # This is useful when you want to compare strings and eliminate subtle differences that may not be visually apparent (such as homoglyphs).
-    normalized = unicodedata.normalize('NFKC',domain)
-    normalized = normalized.replace("о", "o")
+    normalized = domain.replace("о", "o")
     print(normalized)
     return normalized
 
 def diff_site(url1, url2):
+    print(url1)
+    print(url2)
     return get_base_domain(url1) != get_base_domain(url2)
 
 def get_base_domain(url):
