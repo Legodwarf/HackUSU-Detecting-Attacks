@@ -29,5 +29,3 @@ We will then check if the URL's link opacity has been turned to 0, the style has
 Project by: Chhimi Sherpa, Sean McKnelly, & Stephen Parker
 
 Critiqued by: Prof. Gregory Mortensen
-
-Critique by: 
