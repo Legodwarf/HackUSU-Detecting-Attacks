@@ -1,23 +1,17 @@
-from bs4 import BeautifulSoup
-import requests
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.webdriver import Options
 
+def run():
+    driver = webdriver.Chrome()
+    print('hi')
+    # Open the webpage
+    url = "http://localhost:8000/Homoglyphs.html"  # Replace with the URL of the target webpage
+    driver.get(url)
 
-def has_hidden_href(url):
-    """
-    Checks if there's any <a> tag with an href that is hidden.
-    Returns True if such a tag is found; otherwise, False.
-    """
-    response = requests.get(url)
-    soup = BeautifulSoup(response.text, 'html.parser')
-
-    for tag in soup.find_all('a', href=True):  # Only consider <a> tags with an href
-        style = tag.get('style', '')
-        # Check for common hiding styles
-        if 'display: none' in style or 'visibility: hidden' in style or 'opacity: 0' in style:
-            return True
-
-    return False
-
-def check_hidden(val):
-    if val:
-        print("Flag 4 - Hidden Links")
+    # Find all anchor tags <a>
+    links = driver.find_elements(By.TAG_NAME, "a")
+    if not links:
+        print("No links!")
+    ### INCLUDE CODE TO CHECK FOR HIDDEN
