@@ -9,5 +9,5 @@ def get_base_domain(url):
     return url
 
 # Checks if a site has a different base url
-def DiffSite(url1, url2):
+def diff_site(url1, url2):
     return get_base_domain(url1) != get_base_domain(url2)
