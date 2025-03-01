@@ -12,6 +12,7 @@ This will help us flag a site that replaces, for example, a cryllic character in
 Take, for example, apple vs. аррlе. Do they look the same? They do to a casual user, but they are not. The "a" in one is in Latin, the other in cryllic.
 
 3. Base64 Encoding
+
 Base64 Encoding is a form of attack masking otherwise concerning data or code as nonsense text making direct detection of the malware more difficult and in HTML smuggling.
 There are several ways to detect base 64 encoding,
 You can look for decoding prompts within text (EX:javascript (btoa, atob), python (base.b64encode or decode)).
