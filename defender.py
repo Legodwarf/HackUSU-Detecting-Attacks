@@ -5,8 +5,10 @@ import threading
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
+import CheckHidden
 import CheckSearchResults as CSR
 import base64check as b64
+import CheckHidden as CH
 
 PORT = 8000
 
@@ -36,8 +38,9 @@ try:
         print("Flag 1 -- ID'd search term is a different base url")
         CSR.Check_Search_Results(normalized_site_name, fake_url)
         b64.b64(b64.b64Check(fake_url2))
+        CheckHidden.check_hidden("http://localhost:8000/Homoglyphs.html")
+    end = input("Press any key to exit")
+    print(end)
+except Exception as e:
+    print(e)
 
-finally:
-    driver.quit()
-    httpd.shutdown()
-    print("Server shut down.")

@@ -13,7 +13,7 @@ def b64Check(link):
     # if there is a period
     else:
         if index_TLD < 30:
-            print('likely not base64 encoded multiple times')
+            print('Non-Flag 3 - Likely not base64 encoded multiple times')
             return False
         else:
             return True

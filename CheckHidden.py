@@ -17,3 +17,7 @@ def has_hidden_href(url):
             return True
 
     return False
+
+def check_hidden(val):
+    if val:
+        print("Flag 4 - Hidden Links")

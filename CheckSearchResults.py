@@ -26,5 +26,6 @@ def Check_Search_Results(normalized_site_name, fake_url):
     keywords = [for_query_original, for_query_normalized]
     pytrends.build_payload(keywords, cat=0, timeframe='today 12-m', geo='', gprop='')
     data = pytrends.interest_over_time()
+    print(data)
     if .2 * data.iloc[1, 0] < data.iloc[1, 1]:
         print("Flag 2 -- ID'd search term is much less popular than latin equivalent")
