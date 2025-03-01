@@ -2,12 +2,10 @@ from pytrends.request import TrendReq
 import unicodedata
 def normalize_domain(domain):
     normalized = domain.replace("о", "o")
-    print(normalized)
     return normalized
 
-def diff_site(url1, url2):
-    print(url1)
-    print(url2)
+# Returns true if url1 is not equal to url2
+def same_site(url1, url2):
     return get_base_domain(url1) != get_base_domain(url2)
 
 def get_base_domain(url):
