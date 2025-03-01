@@ -22,6 +22,6 @@ Encoding data in base64 also increases the size of the data by about 33% each ti
 The file base64check.py contains a python function definition that reads a url.
 The function then checks the length of the input to see if the url is arbitrarily large and therefore was possibly masked with base64 encoding.
 
-5. Check for hidden URLs
+4. Check for hidden URLs
 
-We will then check if the URL's link opacity has been turned to 0, the style has been turned to display "non", or visibility is "hidden". This is highly suspicious and should flag an alert.
+We will then check if the URL's link opacity has been turned to 0, the style has been turned to display "none", or visibility is "hidden". This is highly suspicious and should flag an alert.
