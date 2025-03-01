@@ -6,6 +6,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 
 import CheckSearchResults as CSR
+import base64check as b64
 
 PORT = 8000
 
@@ -24,14 +25,17 @@ try:
     # accessing the fake url thru the element this will have to modfied 
     fake_url_element = driver.find_element(By.CLASS_NAME, "fake-url")
     fake_url = fake_url_element.text.strip()
+    fake_url2 = CSR.get_base_domain(fake_url)
 
     # Check 1
     normalized_site_name = CSR.normalize_domain(fake_url)
+
     if not CSR.diff_site(fake_url, normalized_site_name):
         print("No flags triggered")
     else:
         print("Flag 1 -- ID'd search term is a different base url")
         CSR.Check_Search_Results(normalized_site_name, fake_url)
+        b64.b64(b64.b64Check(fake_url2))
 
 finally:
     driver.quit()
