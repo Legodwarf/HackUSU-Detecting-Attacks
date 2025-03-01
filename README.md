@@ -1,11 +1,11 @@
 There have been recent attacks by Russian cybercriminals that alter plaintext on sites such as Instagram to redirect the client to malicious websites which include malware.
 In the following program we will attempt to detect the following attacks with the following techniques:
 
-1. Verifying the site re-directs to another website
+1. Verify the site re-directs to another website
 
 We will first see if the user trusts the original site being accessed. If they do, we will check if the web link re-directs to another page on that website. If it does redirect from the trusted website to another subdomain of that trusted website, we will not perform the other checks. Although malicious actors can alter DNS records to corrupt a subdomain but not the primary domain, accounting for this will not be part of the scope of our program at this point in time.
 
-2. Using Unicode Homoglyphs
+2. Detect Unicode Homoglyphs
 
 Once we have ascertained that a link re-directs to another website, we will investigate how popular that website's search term is compared with the Latin version of that site.
 This will help us flag a site that replaces, for example, a cryllic character in an otherwise Latin name and redirects traffic to a malicious version of a website.
