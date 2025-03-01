@@ -8,12 +8,12 @@ We will first see if the user trusts the original site being accessed. If they d
 2. Detect Unicode Homoglyphs
 
 Once we have ascertained that a link re-directs to another website, we will investigate how popular that website's search term is compared with the Latin version of that site.
-This will help us flag a site that replaces, for example, a cryllic character in an otherwise Latin name and redirects traffic to a malicious version of a website.
-Take, for example, apple vs. аррlе. Do they look the same? They do to a casual user, but they are not. The "a" in one is in Latin, the other in cryllic.
+This will help us flag a site that replaces, for example, a Cyrillic character in an otherwise Latin name and redirects traffic to a malicious version of a website.
+Take, for example, apple vs. аррlе. Do they look the same? They do to a casual user, but they are not. The "a" in one is in Latin, the other in Cyrillic.
 
 3. Base64 Encoding
 
-Base64 Encoding is a form of attack masking otherwise concerning data or code as nonsense text making direct detection of the malware more difficult and in HTML smuggling.
+Base64 Encoding is a form of attack masking otherwise concerning data or code as nonsense text making direct detection of the malware more difficult.
 There are several ways to detect base 64 encoding:
 You can look for decoding prompts within text (EX:javascript (btoa, atob), python (base.b64encode or decode)).
 If the same text has been encoded multiple times, a pattern emerges of a pretext "Vm0wd" at the start of the text.
