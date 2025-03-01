@@ -27,12 +27,11 @@ try:
     # accessing the fake url thru the element this will have to modfied 
     fake_url_element = driver.find_element(By.CLASS_NAME, "fake-url")
     fake_url = fake_url_element.text.strip()
-    fake_url2 = CSR.get_base_domain(fake_url)
 
     # Check 1
     normalized_site_name = CSR.normalize_domain(fake_url)
 
-    if CSR.same_site(fake_url, normalized_site_name):
+    if not CSR.diff_site(fake_url, normalized_site_name):
         print("No flags triggered")
     else:
         print("Flag 1 -- ID'd search term is a different base url")
